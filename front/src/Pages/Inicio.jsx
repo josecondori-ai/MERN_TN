@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './Inicio'
+import { Detalles } from '../Components/Detalles/Detalles';
+import { Formulario } from '../Components/Formulario/Formulario';
+
 const Inicio = () => {
 
     const [datos,setDatos]=useState(null)
+    console.log(datos)
 
     useEffect(()=>{
+
             const mifuncion= async()=>{
-                const response=await fetch('/miapi/pepe/')//==> /
-                console.log(response)
+                const response=await fetch('/miapi/pepe')//==> /
                 const json= await response.json()
-                console.log(json)
+            
                 if(response.ok){
                     
                     setDatos(json)
@@ -20,23 +24,18 @@ const Inicio = () => {
 
     },[])
 
-    console.log(datos)
-
-    /*
-    
-    nada siempre se renderiza
-    [] 1 sola vez
-    [varibale] se renderiza cuanod se cambiar el valor de la variable
-    */
-
-
     return(
+       
             <div>
-                {datos.map(dato=>(
-                    <p>{dato}</p>
+                {datos &&  datos.map(dato=>(
+                <div  >
+                        <Detalles dato={dato} key={dato._id} />
+                    
+                </div>
                 ))}
+
+                <Formulario/>
             </div>
         )
 }
-
 export { Inicio }

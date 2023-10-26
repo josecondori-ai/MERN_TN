@@ -1,11 +1,11 @@
 const express =require('express')
 
 const router=express.Router()
-const {obtenerDatos} =require('../controller/controller')
+const {obtenerDatos,crearDato} =require('../controller/controller')
 
 router.get('/',obtenerDatos)
 // router.get('/:id',obtenerDato)
-// router.post('/',crearDato)
+ router.post('/',crearDato)
 // router.delete('/:id',eleminarDatos)
 // router.patch('/:id',actualizarDatos)
 

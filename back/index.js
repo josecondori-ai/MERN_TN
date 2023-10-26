@@ -12,7 +12,7 @@ app.use('/miapi/pepe',rutas)
 mongoose.connect('mongodb+srv://joselcondori:lXYs1pxtMz32UkOO@cluster0.tiraw6w.mongodb.net/?retryWrites=true&w=majority')
 .then(()=>{
     console.log('se conecto la base')
-    app.listen(3000,()=>{
+    app.listen(3200,()=>{
     console.log('el servidor esta listo')
 })
 }).catch((error)=>{
